@@ -3,38 +3,22 @@ import { visibilityFilter, todos } from '../reducers';
 
 describe('todos', () => {
     it('should add todo item', () =>{
-        // const actions = [
-        //     {
-        //         type: 'ADD_TODO',
-        //         text: 'My task 1',
-        //         id: 1
-        //     },            
-        //     {
-        //         type: 'ADD_TODO',
-        //         text: 'My task 2',
-        //         id: 2
-        //     }
-        // ];
+        const action = {
+                type: 'ADD_TODO',
+                text: 'My task 1',
+                id: 1
+            };
 
-        // actions.forEach(action => store.dispatch(action));
+        const actual = todos(undefined, action);
+        
+        const expected = [
+            {
+                id: 1,
+                text: 'My task 1',
+                completed: false
+            }
+        ];
 
-        // const actual = store.getState();
-        // const expected = {
-        //     "todos": [
-        //         {
-        //             id: 1,
-        //             text: 'My task 1',
-        //             completed: false
-        //         },
-        //         {
-        //             id: 2,
-        //             text: 'My task 2',
-        //             completed: false
-        //         }
-        //     ],
-        //     "visibilityFilter": "SHOW_ALL"
-        // };
-
-        // expect(actual).toEqual(expected);
+        expect(actual).toEqual(expected);
     })
 });
